@@ -18,9 +18,9 @@ void ApplicationInfo()
     Console.WriteLine($"{appAuthor}");
 
     for (int i = 0; i < appAuthor.Length; i++)
-        {
+    {
         Console.Write("*");
-        }
+    }
 
     Console.WriteLine();
     Console.WriteLine();
@@ -41,31 +41,33 @@ void MainMenu()
 int GetUserChoice()
 {
     bool continueLoop;
-    int number = 0;
+    int number;
 
     do
-        {
+    {
         Console.Write("Please enter your choice: ");
         string? choice = Console.ReadLine();
         int.TryParse(choice, out number);
 
-        if (string.IsNullOrWhiteSpace(choice))
+        if (!string.IsNullOrWhiteSpace(choice))
+        {
+            if (number is < 1 or > 5)
             {
+                Console.WriteLine("You tried to enter a number that is not between 1 and 5, please try again!");
+                continueLoop = true;
+            }
+            else
+            {
+                continueLoop = false;
+            }
+        }
+        else
+        {
             Console.WriteLine("You tried to enter text or an empty value, please try again!");
             continueLoop = true;
-            }
-        else if (number is < 1 or > 5)
-            {
-            Console.WriteLine("You tried to enter a number that is not between 1 and 5, please try again!");
-            continueLoop = true;
-            }
-        else
-            {
-            continueLoop = false;
-            }
-        } while (continueLoop);
-
-    Console.ReadLine();
+        }
+    } while (continueLoop);
+    
     return number;
 }
 
