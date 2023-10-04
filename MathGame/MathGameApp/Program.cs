@@ -49,22 +49,19 @@ int GetUserChoice()
         string? choice = Console.ReadLine();
         int.TryParse(choice, out number);
 
-        if (!string.IsNullOrWhiteSpace(choice))
-        {
-            if (number is < 1 or > 5)
-            {
-                Console.WriteLine("You tried to enter a number that is not between 1 and 5, please try again!");
-                continueLoop = true;
-            }
-            else
-            {
-                continueLoop = false;
-            }
-        }
-        else
+        if (string.IsNullOrWhiteSpace(choice))
         {
             Console.WriteLine("You tried to enter text or an empty value, please try again!");
             continueLoop = true;
+        }
+        else if (number is < 1 or > 5)
+        {
+            Console.WriteLine("You tried to enter a number that is not between 1 and 5, please try again!");
+            continueLoop = true;
+        }
+        else
+        {
+            continueLoop = false;
         }
     } while (continueLoop);
     
