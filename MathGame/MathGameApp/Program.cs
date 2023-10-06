@@ -1,5 +1,5 @@
 ﻿// Display the application information
-ApplicationInfo();
+ConsoleMessages.ApplicationInfo();
 
 // Display the main menu
 MainMenu();
@@ -7,24 +7,7 @@ MainMenu();
 // Get the user's choice and store it in a variable called userChoice
 int userChoice = GetUserChoice();
 
-void ApplicationInfo()
-{
-    string appName = "MathGameApp";
-    string appVersion = "1.0.0";
-    string appAuthor = "Jonas Karlsson";
 
-    Console.WriteLine($"{appName}");
-    Console.WriteLine($"{appVersion}");
-    Console.WriteLine($"{appAuthor}");
-
-    for (int i = 0; i < appAuthor.Length; i++)
-    {
-        Console.Write("*");
-    }
-
-    Console.WriteLine();
-    Console.WriteLine();
-}
 
 void MainMenu()
 {
