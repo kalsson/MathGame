@@ -12,7 +12,9 @@ while (true)
     Console.WriteLine("5. Random Game");
     Console.WriteLine("6. Show Game History");
     Console.WriteLine("7. Exit");
-                
+    Console.WriteLine();
+    
+    Console.Write("Enter your choice: ");
     string choice = Console.ReadLine();
 
     // Check the user's choice and perform corresponding action.

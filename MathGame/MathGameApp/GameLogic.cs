@@ -31,7 +31,8 @@ public class GameLogic
         /// <param name="operation">The math operation to be used.</param>
         public static void RunGame(string operation)
         {
-            Console.WriteLine("Enter number of questions:");
+            Console.WriteLine();
+            Console.Write("Enter number of questions: ");
             int questionsCount = int.Parse(Console.ReadLine() ?? string.Empty);
             
             // Timer to keep track of time taken to complete the game.
@@ -78,18 +79,23 @@ public class GameLogic
                         i--; // Decrement i to repeat the loop iteration with the new operation.
                         continue;
                 }
-
-                Console.WriteLine($"What is {num1} {GetOperatorSymbol(operation)} {num2}?");
+                
+                Console.WriteLine();
+                Console.Write($"What is {num1} {GetOperatorSymbol(operation)} {num2}?: ");
                 int userAnswer = int.Parse(Console.ReadLine() ?? string.Empty);
 
                 if (userAnswer == answer)
                 {
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Correct!");
+                    Console.ResetColor();
                     correctAnswers++;
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Incorrect!");
+                    Console.ResetColor();
                 }
             }
 
@@ -99,8 +105,13 @@ public class GameLogic
             string gameResult = $"{operation.ToUpper()} - Questions: {questionsCount}, Correct Answers: {correctAnswers}, Time: {stopwatch.Elapsed.TotalSeconds}s";
             GameHistory.Add(gameResult);
 
+            Console.WriteLine();
             Console.WriteLine("Game Over!");
+            Console.WriteLine();
             Console.WriteLine(gameResult);
+            Console.WriteLine();
+            Thread.Sleep(5000);
+            Console.Clear();
         }
 
         /// <summary>
