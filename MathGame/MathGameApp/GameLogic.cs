@@ -4,21 +4,21 @@ namespace MathGameApp;
 
 public class GameLogic
 {
-    static List<string> gameHistory = new List<string>();
+    static readonly List<string> GameHistory = new List<string>();
     
         /// <summary>
         /// Displays the game history.
         /// </summary>
         public static void ShowHistory()
         {
-            if (gameHistory.Count == 0)
+            if (GameHistory.Count == 0)
             {
                 Console.WriteLine("No game history available.");
             }
             else
             {
                 Console.WriteLine("Game History:");
-                foreach (var game in gameHistory)
+                foreach (var game in GameHistory)
                 {
                     Console.WriteLine(game);
                 }
@@ -32,7 +32,7 @@ public class GameLogic
         public static void RunGame(string operation)
         {
             Console.WriteLine("Enter number of questions:");
-            int questionsCount = int.Parse(Console.ReadLine());
+            int questionsCount = int.Parse(Console.ReadLine() ?? string.Empty);
             
             // Timer to keep track of time taken to complete the game.
             Stopwatch stopwatch = new Stopwatch();
@@ -80,7 +80,7 @@ public class GameLogic
                 }
 
                 Console.WriteLine($"What is {num1} {GetOperatorSymbol(operation)} {num2}?");
-                int userAnswer = int.Parse(Console.ReadLine());
+                int userAnswer = int.Parse(Console.ReadLine() ?? string.Empty);
 
                 if (userAnswer == answer)
                 {
@@ -97,7 +97,7 @@ public class GameLogic
             stopwatch.Stop();
 
             string gameResult = $"{operation.ToUpper()} - Questions: {questionsCount}, Correct Answers: {correctAnswers}, Time: {stopwatch.Elapsed.TotalSeconds}s";
-            gameHistory.Add(gameResult);
+            GameHistory.Add(gameResult);
 
             Console.WriteLine("Game Over!");
             Console.WriteLine(gameResult);
@@ -108,7 +108,7 @@ public class GameLogic
         /// </summary>
         /// <param name="operation">The string representation of the operation.</param>
         /// <returns>The symbol representing the operation.</returns>
-        public static string GetOperatorSymbol(string operation)
+        private static string GetOperatorSymbol(string operation)
         {
             switch (operation)
             {
