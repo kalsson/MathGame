@@ -1,4 +1,4 @@
-﻿// Display the application information
+﻿// Display the application information0
 ConsoleMessages.ApplicationInfo();
 
 // Display the menu to the user.
@@ -10,12 +10,11 @@ while (true)
     Console.WriteLine("3. Multiplication");
     Console.WriteLine("4. Division");
     Console.WriteLine("5. Random Game");
-    Console.WriteLine("6. Show Game History");
     Console.WriteLine("7. Exit");
     Console.WriteLine();
     
     Console.Write("Enter your choice: ");
-    string choice = Console.ReadLine();
+    string? choice = Console.ReadLine();
 
     // Check the user's choice and perform corresponding action.
     switch (choice)

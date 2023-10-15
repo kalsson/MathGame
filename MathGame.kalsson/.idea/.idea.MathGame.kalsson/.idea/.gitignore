@@ -2,9 +2,9 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
-/modules.xml
-/.idea.MathGame.iml
 /contentModel.xml
+/.idea.MathGame.kalsson.iml
+/modules.xml
 /projectSettingsUpdater.xml
 # Editor-based HTTP Client requests
 /httpRequests/

@@ -1,6 +1,4 @@
-using System.Diagnostics;
-
-namespace MathGameApp;
+namespace MathGame.kalsson.App;
 
 public class GameLogic
 {
